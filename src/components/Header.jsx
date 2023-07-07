@@ -11,6 +11,7 @@ export default function Header() {
             return true;
         }
     }
+
     return (
         <div className="bg-white border-b shadow-sm sticky top-0 z-40">
             <header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
@@ -26,7 +27,7 @@ export default function Header() {
                 <div>
                     <ul className="flex space-x-10">
                         <li
-                            className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${pathMatchRoute("/") && "text-black border-b-red-500"
+                            className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${pathMatchRoute("/") ? "text-black border-b-red-500" : ""
                                 }`}
                             onClick={() => navigate("/")}
                         >
@@ -34,7 +35,7 @@ export default function Header() {
                         </li>
 
                         <li
-                            className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${pathMatchRoute("/offers") && "text-black border-b-red-500"
+                            className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${pathMatchRoute("/offers") ? "text-black border-b-red-500" : ""
                                 }`}
                             onClick={() => navigate("/offers")}
                         >
@@ -42,13 +43,15 @@ export default function Header() {
                         </li>
 
                         <li
-                            className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${pathMatchRoute("/signin") && "text-black border-b-red-500"
+                            className={`cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent ${pathMatchRoute("/signin") ? "text-black border-b-red-500" : ""
                                 }`}
-                            onClick={() => navigate("/signin")}
-                        >Sign in</li>
+                            onClick={() => navigate("/sign-in")}
+                        >
+                            Sign in
+                        </li>
                     </ul>
                 </div>
-            </header >
-        </div >
-    )
+            </header>
+        </div>
+    );
 }
