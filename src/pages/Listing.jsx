@@ -22,6 +22,8 @@ import {
 } from "react-icons/fa";
 import { getAuth } from "firebase/auth"
 import Contact from "../components/Contact";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+
 
 export default function Listing() {
     const auth = getAuth();
@@ -95,7 +97,7 @@ export default function Listing() {
                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         {listing.type == "rent" ? " / month" : ""}
                     </p>
-                    <p className="flex items-center mt-6 mb-3 font-semibold">
+                    <p className="flex items-center mb-3 font-semibold">
                         <FaMapMarkerAlt className="text-green-700 mr-1" />
                         {listing.address}
                     </p>
@@ -140,7 +142,21 @@ export default function Listing() {
                         <Contact userRef={listing.userRef} listing={listing} />
                     )}
                 </div>
-                <div className="bg-blue-300 w-full h-[200px] lg-[400px] z-10 overflow-x-hidden"></div>
+                <div className="w-full h-[200px] md:h-[400px] z-10 overflow-x-hidden mt-6 md:mt-0 md:ml-2">
+                    <MapContainer center={[listing.geolocation.lat, listing.geolocation.lng]} zoom={13} scrollWheelZoom={false}
+                        style={{ height: "100%", width: "100%" }}
+                    >
+                        {/* <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        /> */}
+                        <Marker position={[listing.geolocation.lat, listing.geolocation.lng]}>
+                            <Popup>
+                                {listing.address}
+                            </Popup>
+                        </Marker>
+                    </MapContainer>
+                </div>
             </div>
         </main >
     );
