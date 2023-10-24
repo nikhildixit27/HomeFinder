@@ -187,8 +187,8 @@ export default function CreateListing() {
                         value="sale"
                         onClick={onChange}
                         className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${type === "rent"
-                                ? "bg-white text-black"
-                                : "bg-slate-600 text-white"
+                            ? "bg-white text-black"
+                            : "bg-slate-600 text-white"
                             }`}
                     >
                         sell
@@ -199,8 +199,8 @@ export default function CreateListing() {
                         value="rent"
                         onClick={onChange}
                         className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${type === "sale"
-                                ? "bg-white text-black"
-                                : "bg-slate-600 text-white"
+                            ? "bg-white text-black"
+                            : "bg-slate-600 text-white"
                             }`}
                     >
                         rent
@@ -381,7 +381,7 @@ export default function CreateListing() {
                             />
                             {type === "rent" && (
                                 <div className="">
-                                    <p className="text-md w-full whitespace-nowrap">$ / Month</p>
+                                    <p className="text-md w-full whitespace-nowrap">₹ / Month</p>
                                 </div>
                             )}
                         </div>
@@ -405,7 +405,7 @@ export default function CreateListing() {
                                 {type === "rent" && (
                                     <div className="">
                                         <p className="text-md w-full whitespace-nowrap">
-                                            $ / Month
+                                            ₹ / Month
                                         </p>
                                     </div>
                                 )}

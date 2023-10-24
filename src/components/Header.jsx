@@ -1,6 +1,8 @@
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import logo from "../assets/logo-no-background.png"
+
 
 export default function Header() {
     const location = useLocation();
@@ -29,9 +31,9 @@ export default function Header() {
             <header className="flex justify-between items-center px-3 max-w-6xl mx-auto">
                 <div>
                     <img
-                        src="https://static.rdc.moveaws.com/images/logos/rdc-logo-default.svg"
+                        src={logo}
                         alt="logo"
-                        className="h-5 cursor-pointer"
+                        className="h-10 cursor-pointer"
                         onClick={() => navigate("/")}
                     />
                 </div>

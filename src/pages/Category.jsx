@@ -74,7 +74,7 @@ export default function Category() {
 
     return (
         <div className='max-w-6xl mx-auto px-3'>
-            <h1 className='text-3xl text-center mt-6 font-bold mb-6'>
+            <h1 className='text-3xl text-center mt-6 font-bold mb-6 underline'>
                 {params.categoryName === "rent" ? "Places for Rent" : "Places for Sale"}
             </h1>
             {loading ? (
@@ -95,7 +95,7 @@ export default function Category() {
                         <div className="flex justify-center items-center">
                             <button
                                 onClick={onFetchMoreListings}
-                                className="bg-white px-3 py-1.5 text-gray-700 border border-gray-300 mb-6 mt-6 hover:border-slate-600 rounded transition duration-150 ease-in-out"
+                                className="bg-red-600 px-3 py-1.5 font-semibold text-white border border-gray-300 mb-6 mt-6 hover:border-slate-600 rounded transition duration-150 ease-in-out"
                             >
                                 Load more
                             </button>
@@ -103,7 +103,7 @@ export default function Category() {
                     )}
                 </>
             ) : (
-                <p>There are no current offers</p>
+                <p>There are no current {params.categoryName === "rent" ? "places for rent" : "places for sale"}</p>
             )
             }
         </div>
